@@ -2,6 +2,7 @@ package com.example.novadebug.screens.reservations
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.novadebug.model.clinic.reservation.Reservation
 import com.example.novadebug.util.CLIENTS_COLLECTION
@@ -20,7 +21,10 @@ class ReservationsViewModel @Inject constructor() : ViewModel() {
     val reservations = mutableStateListOf<Reservation>()
     private val db = Firebase.firestore
 
+    val loading = mutableStateOf(false)
+
     fun updateReservations(){
+        loading.value = true
         db.collection(CLIENTS_COLLECTION).document(CLIENT_NAME).collection(CLIENT_RESERVATIONS).get()
             .addOnSuccessListener {
                     documents ->
@@ -29,9 +33,11 @@ class ReservationsViewModel @Inject constructor() : ViewModel() {
                     val reservation = document.toObject<Reservation>()
                     Log.d(TAG, "reservationsViewModel: ${reservation.id}")
                     reservations.add(reservation)
+                    loading.value = false
                 }
             }.addOnFailureListener {
                 Log.d(TAG, "reservationsViewModel: Failed to retrieve data")
+                loading.value = false
             }
     }
 }
