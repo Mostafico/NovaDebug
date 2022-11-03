@@ -1,17 +1,22 @@
 package com.example.novadebug.screens.reservations
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -30,25 +35,135 @@ fun ReservationScreen(
     val isLoading = reservationsViewModel.loading
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text(text = "Nova Clinic")})},
+        topBar = { TopAppBar(title = { Text(text = "Nova Clinic") }) },
         content = {
-            ReservationList(reservations, isLoading.value)
+            ReservationScreenContent(reservations, isLoading.value)
         }
     )
 }
 
 @Composable
-fun ReservationList(items: List<Reservation>, isLoading: Boolean) {
-    if (isLoading){
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+fun ReservationScreenContent(items: List<Reservation>, isLoading: Boolean) {
+    if (isLoading) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text(text = "Loading")
         }
-    }else{
-        LazyColumn(modifier = Modifier.padding(16.dp)) {
-            items(items = items) { item ->
-                Text(text = item.id)
+    } else {
+        ReservationList(items = items)
+    }
+
+}
+
+@Composable
+fun ReservationList(items: List<Reservation>) {
+    LazyColumn(
+        modifier = Modifier.padding(16.dp).fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        items(items = items) { item ->
+            ReservationCardItem(reservation = item)
+        }
+    }
+}
+
+@Composable
+fun ReservationCardItem(reservation: Reservation) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(150.dp),
+        elevation = 10.dp,
+        shape = RoundedCornerShape(16.dp),
+    ) {
+        Row(modifier = Modifier.fillMaxHeight()) {
+            Image(
+                painter = painterResource(com.example.novadebug.R.drawable.man),
+                contentDescription = "Round corner image",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(10.dp)
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .clip(RoundedCornerShape(10))
+            )
+            Column(
+                Modifier
+                    .padding(16.dp)
+                    .fillMaxHeight()
+                    .weight(2f), verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(text = reservation.id, style = MaterialTheme.typography.subtitle1)
+
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = reservation.branch)
+                    Text(text = reservation.device)
+                }
+
             }
         }
     }
+}
 
+@Preview
+@Composable
+fun ReservationListPreview() {
+    ReservationList(
+        items = listOf(
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            ),
+            Reservation(
+                id = "1FRFZpSa7fWPlsaYJc7E",
+                device = "Cadiac",
+                branch = "Smouha"
+            )
+        )
+    )
+}
+
+@Preview
+@Composable
+fun ReservationCardItemPreview() {
+    ReservationCardItem(
+        reservation = Reservation(
+            id = "1FRFZpSa7fWPlsaYJc7E",
+            device = "Cadiac",
+            branch = "Smouha"
+        )
+    )
 }

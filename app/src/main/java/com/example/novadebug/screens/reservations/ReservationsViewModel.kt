@@ -21,6 +21,7 @@ class ReservationsViewModel @Inject constructor() : ViewModel() {
     val reservations = mutableStateListOf<Reservation>()
     private val db = Firebase.firestore
 
+    //TODO can be replaced by State Sealed Class, use Result Class also
     val loading = mutableStateOf(false)
 
     fun updateReservations(){
