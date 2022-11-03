@@ -15,9 +15,10 @@ import com.example.novadebug.ui.theme.NovaDebugTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             NovaDebugTheme {
-
+                Text(text = "Hello World")
             }
         }
     }
