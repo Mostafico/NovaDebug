@@ -15,26 +15,14 @@ import com.example.novadebug.util.CLIENT_RESERVATIONS
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "MainActivity"
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val db = Firebase.firestore
-
-        db.collection(CLIENTS_COLLECTION).document(CLIENT_NAME).collection(CLIENT_RESERVATIONS).get()
-            .addOnSuccessListener {
-                documents -> 
-                for (document in documents){
-                    Log.d(TAG, "onCreate: ${document.id} --> ${document.data}")
-                    val reservation = document.toObject<Reservation>()
-                    Log.d(TAG, "onCreate: ${reservation.id}")
-                }
-            }.addOnFailureListener {
-                Log.d(TAG, "onCreate: Failed to retrieve data")
-            }
-
         setContent {
             NovaDebugTheme {
                 val navController = rememberNavController()
