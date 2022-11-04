@@ -19,17 +19,21 @@ private const val TAG = "ReservationsViewModel"
 @HiltViewModel
 class ReservationsViewModel @Inject constructor() : ViewModel() {
     val reservations = mutableStateListOf<Reservation>()
+    private val reservationRef by lazy {
+        db.collection(CLIENTS_COLLECTION).document(CLIENT_NAME).collection(CLIENT_RESERVATIONS)
+
+    }
     private val db = Firebase.firestore
 
     //TODO can be replaced by State Sealed Class, use Result Class also
     val loading = mutableStateOf(false)
 
-    fun updateReservations(){
+    fun updateReservations() {
         loading.value = true
-        db.collection(CLIENTS_COLLECTION).document(CLIENT_NAME).collection(CLIENT_RESERVATIONS).get()
-            .addOnSuccessListener {
-                    documents ->
-                for (document in documents){
+        reservationRef
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
                     Log.d(TAG, "reservationsViewModel: ${document.id} --> ${document.data}")
                     val reservation = document.toObject<Reservation>()
                     Log.d(TAG, "reservationsViewModel: ${reservation.id}")
@@ -39,6 +43,16 @@ class ReservationsViewModel @Inject constructor() : ViewModel() {
             }.addOnFailureListener {
                 Log.d(TAG, "reservationsViewModel: Failed to retrieve data")
                 loading.value = false
+            }
+    }
+
+    fun addNewReservation(reservation: Reservation) {
+        reservationRef.add(reservation)
+            .addOnSuccessListener {
+                Log.d(TAG, "Added Document Successfully with ID : ${it.id}")
+            }
+            .addOnFailureListener {
+                Log.e(TAG, "Failed to Add Document", it.cause)
             }
     }
 }
