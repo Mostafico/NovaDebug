@@ -11,5 +11,6 @@ data class Reservation(
     val status: String = "",
     val time: Long,
     val userId: String = "",
+    val expectedDuration: Int,
 )
 
