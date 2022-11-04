@@ -22,12 +22,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.novadebug.model.clinic.Doctor
 import com.example.novadebug.model.clinic.reservation.Reservation
+import com.google.firebase.Timestamp
+
 
 @Composable
 fun ReservationScreen(
     reservationsViewModel: ReservationsViewModel = hiltViewModel(),
     navController: NavHostController,
 ) {
+    // Todo : is this the right value for the key? "true" will make this block execute only once.
     LaunchedEffect(key1 = true) {
         reservationsViewModel.updateReservations()
     }
@@ -125,7 +128,7 @@ fun ReservationListPreview() {
             id = "RfCDM6o8knwSElvVhK33"
         ),
         status = "scheduled",
-        time = System.currentTimeMillis(),
+        time = Timestamp.now(),
         userId = "o2SG28pYMx8TgicYdTlu",
         expectedDuration = 30
     )
@@ -156,7 +159,7 @@ fun ReservationCardItemPreview() {
                 id = "RfCDM6o8knwSElvVhK33"
             ),
             status = "scheduled",
-            time = System.currentTimeMillis(),
+            time = Timestamp.now(),
             userId = "o2SG28pYMx8TgicYdTlu",
             expectedDuration = 30
         )
