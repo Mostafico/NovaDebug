@@ -11,7 +11,7 @@ import com.example.novadebug.presentation.reservations.ReservationScreen
 fun SetupNavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Reservations.route) {
         composable(route = Screen.Reservations.route){
-            ReservationScreen(navController = navController)
+            ReservationScreen()
         }
     }
 }
