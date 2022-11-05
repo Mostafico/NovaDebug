@@ -1,4 +1,4 @@
-package com.example.novadebug
+package com.example.novadebug.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
