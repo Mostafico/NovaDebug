@@ -15,6 +15,6 @@ data class Reservation(
     val status: String = "",
     @ServerTimestamp val dateTime: Timestamp = Timestamp.now(),
     val userId: String = "",
-    val expectedDuration: Int = 0,
+    val expectedDurationMin: Int = 0,
 )
 
