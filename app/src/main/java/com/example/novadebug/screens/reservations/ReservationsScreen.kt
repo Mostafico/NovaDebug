@@ -128,7 +128,7 @@ fun ReservationListPreview() {
             id = "RfCDM6o8knwSElvVhK33"
         ),
         status = "scheduled",
-        time = Timestamp.now(),
+        dateTime = Timestamp.now(),
         userId = "o2SG28pYMx8TgicYdTlu",
         expectedDuration = 30
     )
@@ -159,7 +159,7 @@ fun ReservationCardItemPreview() {
                 id = "RfCDM6o8knwSElvVhK33"
             ),
             status = "scheduled",
-            time = Timestamp.now(),
+            dateTime = Timestamp.now(),
             userId = "o2SG28pYMx8TgicYdTlu",
             expectedDuration = 30
         )

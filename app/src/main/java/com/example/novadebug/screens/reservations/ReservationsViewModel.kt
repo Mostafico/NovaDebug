@@ -40,7 +40,7 @@ class ReservationsViewModel @Inject constructor() : ViewModel() {
                     Log.d(TAG, "reservationsViewModel: ${document.id} --> ${document.data}")
                     val reservation = document.toObject<Reservation>()
                     Log.d(TAG, "reservationsViewModel: ${reservation.id}")
-                    Log.d(TAG, "data: ${reservation.time.toDate()}")
+                    Log.d(TAG, "data: ${reservation.dateTime.toDate()}")
                     reservations.add(reservation)
                     loading.value = false
                 }
