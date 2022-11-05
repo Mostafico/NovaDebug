@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.novadebug.model.clinic.reservation.Reservation
 import com.example.novadebug.navigation.SetupNavGraph
-import com.example.novadebug.screens.reservations.ReservationScreen
+import com.example.novadebug.presentation.reservations.ReservationScreen
 import com.example.novadebug.presentation.ui.theme.NovaDebugTheme
 import com.example.novadebug.util.CLIENTS_COLLECTION
 import com.example.novadebug.util.CLIENT_NAME

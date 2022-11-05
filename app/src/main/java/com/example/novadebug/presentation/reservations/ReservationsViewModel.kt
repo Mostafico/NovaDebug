@@ -1,4 +1,4 @@
-package com.example.novadebug.screens.reservations
+package com.example.novadebug.presentation.reservations
 
 import android.nfc.Tag
 import android.util.Log
