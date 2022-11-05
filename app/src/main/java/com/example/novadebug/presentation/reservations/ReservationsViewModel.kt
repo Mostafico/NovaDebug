@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.novadebug.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.reservation.Reservation
 import com.example.novadebug.common.CLIENTS_COLLECTION
 import com.example.novadebug.common.CLIENT_NAME
 import com.example.novadebug.common.CLIENT_RESERVATIONS

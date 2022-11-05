@@ -20,8 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.novadebug.model.clinic.Doctor
-import com.example.novadebug.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.Doctor
+import com.example.novadebug.domain.model.clinic.reservation.Reservation
 import com.google.firebase.Timestamp
 
 
