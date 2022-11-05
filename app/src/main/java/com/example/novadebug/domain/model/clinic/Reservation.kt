@@ -1,6 +1,6 @@
-package com.example.novadebug.model.clinic.reservation
+package com.example.novadebug.domain.model.clinic
 
-import com.example.novadebug.model.clinic.Doctor
+import com.example.novadebug.domain.model.clinic.Doctor
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.ServerTimestamp
 import kotlin.collections.ArrayList

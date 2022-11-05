@@ -5,13 +5,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.novadebug.screens.reservations.ReservationScreen
+import com.example.novadebug.presentation.reservations.ReservationScreen
 
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Reservations.route) {
         composable(route = Screen.Reservations.route){
-            ReservationScreen(navController = navController)
+            ReservationScreen()
         }
     }
 }

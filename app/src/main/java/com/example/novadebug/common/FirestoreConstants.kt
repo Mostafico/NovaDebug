@@ -1,4 +1,4 @@
-package com.example.novadebug.util
+package com.example.novadebug.common
 
 const val CLIENTS_COLLECTION = "clients"
 const val CLIENT_NAME = "nova"
