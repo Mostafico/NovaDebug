@@ -1,4 +1,4 @@
-package com.example.novadebug.ui.theme
+package com.example.novadebug.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
