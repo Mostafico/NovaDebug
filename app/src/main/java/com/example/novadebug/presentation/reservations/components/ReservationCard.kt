@@ -20,7 +20,9 @@ fun ReservationCard(reservation: Reservation) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(150.dp),
+            .height(150.dp)
+            .padding(top = 16.dp)
+        ,
         elevation = 10.dp,
         shape = RoundedCornerShape(16.dp),
     ) {
