@@ -7,7 +7,10 @@ import kotlinx.coroutines.flow.Flow
 
 typealias Reservations = List<Reservation>
 typealias ReservationsResponse = Response<Reservations>
+typealias AddReservationResponse = Response<Boolean>
 
 interface ClinicRepository {
     fun getReservations(): Flow<ReservationsResponse>
+
+    suspend fun addReservation(reservation: Reservation): AddReservationResponse
 }
