@@ -2,6 +2,9 @@ package com.example.novadebug.domain.model.clinic.reservation
 
 import com.example.novadebug.domain.model.clinic.Doctor
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.ServerTimestamp
+import kotlin.collections.ArrayList
+
 
 data class Reservation(
     val id: String = "",
@@ -10,8 +13,8 @@ data class Reservation(
     val device: String = "",
     val doctor: Doctor = Doctor(),
     val status: String = "",
-    val time: Timestamp = Timestamp.now(),
+    @ServerTimestamp val dateTime: Timestamp = Timestamp.now(),
     val userId: String = "",
-    val expectedDuration: Int = 0,
+    val expectedDurationMin: Int = 0,
 )
 
