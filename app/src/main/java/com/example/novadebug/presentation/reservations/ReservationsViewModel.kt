@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
+import com.example.novadebug.domain.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.repository.AddReservationResponse
 
 
 private const val TAG = "ReservationsViewModel"
@@ -22,7 +24,7 @@ class ReservationsViewModel @Inject constructor(
 ) : ViewModel() {
     var reservationsResponse by mutableStateOf<ReservationsResponse>(Loading)
         private set
-
+    var addReservationResponse by mutableStateOf<AddReservationResponse>(Success(false))
 
     init {
         getReservations()
@@ -34,17 +36,9 @@ class ReservationsViewModel @Inject constructor(
         }
     }
 
+    fun addReservation(reservation: Reservation) = viewModelScope.launch {
+        addReservationResponse = Loading
+        addReservationResponse = useCases.addReservation(reservation)
+    }
 
-//
-//    fun addNewReservation(reservation: Reservation) {
-//        viewModelScope.launch {
-//            reservationRef.add(reservation)
-//                .addOnSuccessListener {
-//                    Log.d(TAG, "Added Document Successfully with ID : ${it.id}")
-//                }
-//                .addOnFailureListener {
-//                    Log.e(TAG, "Failed to Add Document", it.cause)
-//                }
-//        }
-//    }
 }
