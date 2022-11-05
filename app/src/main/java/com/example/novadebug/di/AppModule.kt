@@ -5,6 +5,8 @@ import com.example.novadebug.common.CLIENT_NAME
 import com.example.novadebug.common.CLIENT_RESERVATIONS
 import com.example.novadebug.data.repository.ClinicRepositoryImpl
 import com.example.novadebug.domain.repository.ClinicRepository
+import com.example.novadebug.domain.use_case.GetReservations
+import com.example.novadebug.domain.use_case.UseCases
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -29,4 +31,11 @@ object AppModule {
     fun provideClinicRepository(
         reservationsRef: CollectionReference,
     ): ClinicRepository = ClinicRepositoryImpl(reservationsRef)
+
+    @Provides
+    fun provideUseCases(
+        repo: ClinicRepository,
+    ) = UseCases(
+        getReservations = GetReservations(repo)
+    )
 }
