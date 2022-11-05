@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Nova Debug</string>
+    <string name="add_reservation">Add Reservation</string>
 </resources>
