@@ -1,15 +1,14 @@
 package com.example.novadebug.presentation.reservations
 
-import android.nfc.Tag
 import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.novadebug.model.clinic.reservation.Reservation
-import com.example.novadebug.util.CLIENTS_COLLECTION
-import com.example.novadebug.util.CLIENT_NAME
-import com.example.novadebug.util.CLIENT_RESERVATIONS
+import com.example.novadebug.common.CLIENTS_COLLECTION
+import com.example.novadebug.common.CLIENT_NAME
+import com.example.novadebug.common.CLIENT_RESERVATIONS
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
