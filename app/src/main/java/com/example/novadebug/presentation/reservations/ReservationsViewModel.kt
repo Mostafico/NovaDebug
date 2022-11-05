@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
-import com.example.novadebug.domain.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.Reservation
 import com.example.novadebug.domain.repository.AddReservationResponse
 
 

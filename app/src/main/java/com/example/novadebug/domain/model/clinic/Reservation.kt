@@ -1,4 +1,4 @@
-package com.example.novadebug.domain.model.clinic.reservation
+package com.example.novadebug.domain.model.clinic
 
 import com.example.novadebug.domain.model.clinic.Doctor
 import com.google.firebase.Timestamp

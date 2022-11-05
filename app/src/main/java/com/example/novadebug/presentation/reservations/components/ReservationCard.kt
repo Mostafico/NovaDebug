@@ -13,7 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.novadebug.R
-import com.example.novadebug.domain.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.Reservation
 
 @Composable
 fun ReservationCard(reservation: Reservation) {

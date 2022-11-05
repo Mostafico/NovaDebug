@@ -1,7 +1,7 @@
 package com.example.novadebug.data.repository
 
 import android.util.Log
-import com.example.novadebug.domain.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.Reservation
 import com.example.novadebug.domain.repository.ClinicRepository
 import com.example.novadebug.domain.repository.ReservationsResponse
 import com.google.firebase.firestore.CollectionReference

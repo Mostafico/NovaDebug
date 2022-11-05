@@ -1,7 +1,7 @@
 package com.example.novadebug.domain.repository
 
 import com.example.novadebug.domain.model.Response
-import com.example.novadebug.domain.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.Reservation
 import kotlinx.coroutines.flow.Flow
 
 

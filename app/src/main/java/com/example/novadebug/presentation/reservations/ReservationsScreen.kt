@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.novadebug.common.components.TopBar
 import com.example.novadebug.domain.model.clinic.Doctor
-import com.example.novadebug.domain.model.clinic.reservation.Reservation
+import com.example.novadebug.domain.model.clinic.Reservation
 import com.example.novadebug.presentation.reservations.components.AddReservation
 import com.example.novadebug.presentation.reservations.components.AddReservationFab
 import com.example.novadebug.presentation.reservations.components.ReservationContent
@@ -20,9 +20,9 @@ var dummyReservation = Reservation(
     device = "candela",
     doctor = Doctor(id = "22222"),
     status = "scheduled",
-    time = Timestamp.now(),
+    dateTime = Timestamp.now(),
     userId = "44444",
-    expectedDuration = 30
+    expectedDurationMin = 30
 )
 
 @Composable
