@@ -1,7 +1,6 @@
 package com.example.novadebug.screens.reservations
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,8 +11,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -128,14 +125,14 @@ fun ReservationListPreview() {
             id = "RfCDM6o8knwSElvVhK33"
         ),
         status = "scheduled",
-        time = Timestamp.now(),
+        dateTime = Timestamp.now(),
         userId = "o2SG28pYMx8TgicYdTlu",
-        expectedDuration = 30
+        expectedDurationMin = 30
     )
     val reservationsList = listOf(
         reservation,
         reservation.copy(status = "canceled"),
-        reservation.copy(expectedDuration = 15),
+        reservation.copy(expectedDurationMin = 15),
         reservation.copy(status = "canceled")
     )
     ReservationList(
@@ -159,9 +156,9 @@ fun ReservationCardItemPreview() {
                 id = "RfCDM6o8knwSElvVhK33"
             ),
             status = "scheduled",
-            time = Timestamp.now(),
+            dateTime = Timestamp.now(),
             userId = "o2SG28pYMx8TgicYdTlu",
-            expectedDuration = 30
+            expectedDurationMin = 30
         )
     )
 }
